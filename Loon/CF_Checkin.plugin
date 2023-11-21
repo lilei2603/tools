@@ -1,0 +1,7 @@
+#!name = 春风定时签到
+#!desc = 春风定时签到任务。详情见仓库
+#!author = LEI
+#!homepage = https://github.com/lilei2603/tools/new/main/Loon
+#!icon = https://raw.githubusercontent.com/lilei2603/tools/main/Icon/cf.png
+#!date = 2023-11-21
+#!input = CF_Cookie
