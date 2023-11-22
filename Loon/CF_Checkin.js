@@ -42,7 +42,7 @@ function queryInfo(checkInResult) {
         if(result.code == 0) {
             const integralTotal = result.data.integralTotal
             if(checkInResult.code == 0) {
-                $.msg(title, '🎉签到完成，获取积分：' + parseInt(str) + '分', '当前累计积分：' + integralTotal + '分')
+                $.msg(title, '🎉签到完成，获取积分：' + parseInt(checkInResult.data) + '分', '当前累计积分：' + integralTotal + '分')
             }else{
                 $.msg(title, '⚠️今天已经签到过了', '当前累计积分：' + integralTotal + '分')
             }
