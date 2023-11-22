@@ -13,7 +13,7 @@ DOMAIN, c.cfmoto.com, DIRECT
 # 开屏广告
 ^https:\/\/c\.cfmoto\.com\/cfmotoservermall\/app\/ad$ reject-dict
 # 弹窗广告
-^https:\/\/c.cfmoto.com\/cfmotoservermall\/app\/popwindow$ reject-dict
+^https:\/\/c\.cfmoto\.com\/cfmotoservermall\/app\/popwindow$ reject-dict
 
 
 [MitM]
