@@ -4,19 +4,19 @@
  * @date: 2023-11-21 10:25:00
  */
 
-const title = '🔔春风签到';
-const $ = new Env(title, true);
+const title = '🔔春风签到'
+const $ = new Env(title, true)
 const cookie = $.getval("CF_Cookie");
-const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 cfmoto/1.0.0';
+const userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 cfmoto/1.0.0'
 
 const url = 'https://c.cfmoto.com/cfmotoservermall/app';
 $.signInfo = {};
 
 !(async () => {
 	await sign();
-	await getSignInfo();
-	await showMsg();
-})();
+	await getSignInfo()
+	await showMsg()
+})()
 async function sign() {
     const option = {
         url: url + '/integral/task/complete/v1',
@@ -30,12 +30,13 @@ async function sign() {
             taskDetail: 8
         }
     }
-    const result = await $.http.put(option).then(response => response.body);
-    const signData = JSON.parse(result);
-    if(signData.code == 0) {
-        $.signInfo.integral = parseInt(signData.data);
-    }
-    $.signInfo.isSign = signData.code == 500;
+    $httpClient.put(option, (error,res,data) => {
+        const signData = JSON.parse(data)
+        if(signData.code == 0) {
+            $.signInfo.integral = parseInt(signData.data)
+        }
+        $.signInfo.isSign = signData.code == 500;
+    })
 }
 async function getSignInfo() {
     const option = {
@@ -48,14 +49,14 @@ async function getSignInfo() {
     const result = await $.http.get(option).then(response => response.body);
     const signInfo = JSON.parse(result);
     if(signInfo.code == 0) {
-        $.signInfo.integralTotal = signInfo.data.integralTotal;
+        $.signInfo.integralTotal = signInfo.data.integralTotal
     }
 }
 function showMsg() {
 	if($.signInfo.isSign) {
-		$.msg(title, '⚠️今日已签到', '当前累计积分：' + $.signInfo.integralTotal + '分');
+		$.msg(title, '⚠️今日已签到', '当前累计积分：' + $.signInfo.integralTotal + '分')
 	} else {
-		$.msg(title, '🎉签到完成，获取积分：' + $.signInfo.integral + '分', '当前累计积分：' + $.signInfo.integralTotal + '分');
+		$.msg(title, '🎉签到完成，获取积分：' + $.signInfo.integral + '分', '当前累计积分：' + $.signInfo.integralTotal + '分')
 	}
 }
 
