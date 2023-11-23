@@ -1,6 +1,8 @@
 #!name=小熊油耗会员
-#!desc=小熊油耗APP会员解锁
+#!desc=小熊油耗APP会员。
+#!author = 润就完事了
 #!icon=https://raw.githubusercontent.com/lilei2603/tools/main/Icon/xx_logo.png
+#!date = 2023-11-23
 
 [Script]
 
