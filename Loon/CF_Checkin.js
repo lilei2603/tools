@@ -30,7 +30,7 @@ async function sign() {
             taskDetail: 8
         }
     }
-    $httpClient.put(option, (error,res,data) => {
+    await $httpClient.put(option, (error,res,data) => {
         const signData = JSON.parse(data)
         if(signData.code == 0) {
             $.signInfo.integral = parseInt(signData.data)
