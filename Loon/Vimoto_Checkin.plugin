@@ -1,0 +1,10 @@
+#!name = 维迈通多多定时签到
+#!desc = 维迈通多多定时签到任务。
+#!author = 润就完事了
+#!homepage = https://github.com/lilei2603/tools/new/main/Loon
+#!icon = https://raw.githubusercontent.com/lilei2603/tools/main/Icon/dd_logo.png
+#!date = 2023-11-23
+#!input = vimoto_token
+
+[Script]
+cron "3 0 * * *" script-path=https://raw.githubusercontent.com/lilei2603/tools/main/Loon/Vimoto_Checkin.js, tag=维迈通多多签到
