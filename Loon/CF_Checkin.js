@@ -52,7 +52,7 @@ async function getSignInfo() {
         $.signInfo.integralTotal = signInfo.data.integralTotal
     }
 }
-function showMsg() {
+async function showMsg() {
 	if($.signInfo.isSign) {
 		$.msg(title, '⚠️今日已签到', '当前累计积分：' + $.signInfo.integralTotal + '分')
 	} else {
