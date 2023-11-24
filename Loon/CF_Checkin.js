@@ -14,28 +14,31 @@ $.signInfo = {};
 
 !(async () => {
 	await sign();
-	await getSignInfo()
-	await showMsg()
+	await getSignInfo();
+	await showMsg();
 })()
-async function sign() {
-    const option = {
-        url: url + '/integral/task/complete/v1',
-        headers: {
-            'Content-Type': 'application/json',
-            'cookie': cookie,
-            'user-agent': userAgent
-        },
-        body: {
-            completeStatu: 1,
-            taskDetail: 8
+function sign() {
+    return new Promise((resolve) => {
+        const option = {
+            url: url + '/integral/task/complete/v1',
+            headers: {
+                'Content-Type': 'application/json',
+                'cookie': cookie,
+                'user-agent': userAgent
+            },
+            body: {
+                completeStatu: 1,
+                taskDetail: 8
+            }
         }
-    }
-    await $httpClient.put(option, (error,res,data) => {
-        const signData = JSON.parse(data)
-        if(signData.code == 0) {
-            $.signInfo.integral = parseInt(signData.data)
-        }
-        $.signInfo.isSign = signData.code == 500;
+        $httpClient.put(option, (error,res,data) => {
+            const signData = JSON.parse(data)
+            if(signData.code == 0) {
+                $.signInfo.integral = parseInt(signData.data)
+            }
+            $.signInfo.isSign = signData.code == 500;
+            resolve()
+        })
     })
 }
 async function getSignInfo() {
