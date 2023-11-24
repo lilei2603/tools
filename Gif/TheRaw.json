@@ -2,6 +2,7 @@
     "name":"The Gifs", 
     "description":"By Leiyiyan", 
     "icons":[
-        {"name":"recycling", "url":"https://raw.githubusercontent.com/lilei2603/tools/main/Gif/recycling.gif"}
+        {"name":"recycling", "url":"https://raw.githubusercontent.com/lilei2603/tools/main/Gif/recycling.gif"},
+        {"name":"home", "url":"https://raw.githubusercontent.com/lilei2603/tools/main/Gif/home.gif"}
     ]
 }
