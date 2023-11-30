@@ -1,0 +1,32 @@
+#!name = 网易云音乐共享会员
+#!desc = 请严格填写数据，使用时需启用此插件，禁用则共享会员失效。点击下方链接查看使用说明。
+#!openUrl = https://gitlab.com/isous/loonresource/-/blob/main/Document/NeteaseCloudMusic/README.md
+#!author = 伟人
+#!homepage = https://gitlab.com/isous/loonresource/-/tree/main/Plugin
+#!icon = https://gitlab.com/isous/loonresource/-/raw/master/Icon/NeteaseCloudMusic.png
+#!date = 2023-11-30 10:36:31
+#!input = 163_Cookie
+#!input = 163_User-Agent
+#!input = 163_MConfig-Info
+
+[Script]
+# 播放器皮肤
+http-request ^https:\/\/interface3\.music\.163\.com\/eapi\/playermode\/ script-path = https://gitlab.com/isous/loonresource/-/raw/master/Script/NeteaseCloudMusic/NeteaseCloudMusic_shared_membership.js, tag = iPhone端共享会员
+
+# 搜索结果列表
+http-request ^https:\/\/interface3\.music\.163\.com\/eapi\/search\/complex\/page script-path = https://gitlab.com/isous/loonresource/-/raw/master/Script/NeteaseCloudMusic/NeteaseCloudMusic_shared_membership.js, tag = iPhone端共享会员
+
+# 会员歌曲
+http-request ^https:\/\/interface3\.music\.163\.com\/eapi\/song\/ script-path = https://gitlab.com/isous/loonresource/-/raw/master/Script/NeteaseCloudMusic/NeteaseCloudMusic_shared_membership.js, tag = iPhone端共享会员
+
+# 侧边栏显示会员等级
+http-request ^https:\/\/interface3\.music\.163\.com\/eapi\/vipnewcenter\/app\/resource\/newaccountpage script-path = https://gitlab.com/isous/loonresource/-/raw/master/Script/NeteaseCloudMusic/NeteaseCloudMusic_shared_membership.js, tag = iPhone端共享会员
+
+# 会员歌曲列表
+http-request ^https?:\/\/interface3\.music\.163\.com\/eapi\/(homepage\/|v6\/)?playlist\/ script-path = https://gitlab.com/isous/loonresource/-/raw/master/Script/NeteaseCloudMusic/NeteaseCloudMusic_shared_membership.js, tag = iPhone端共享会员
+
+# 音质切换
+http-request ^https?:\/\/interface3\.music\.163\.com\/eapi\/vipauth\/app\/auth\/ script-path = https://gitlab.com/isous/loonresource/-/raw/master/Script/NeteaseCloudMusic/NeteaseCloudMusic_shared_membership.js, tag = iPhone端共享会员
+  
+[Mitm]
+hostname = interface*.music.163.com
