@@ -1,0 +1,26 @@
+#!name = 百度地图去广告
+#!desc = 过滤百度地图广告。
+#!author = 润就完事了
+#!homepage = https://github.com/lilei2603/tools/new/main/Loon
+#!icon = https://raw.githubusercontent.com/lilei2603/tools/main/Icon/BaiDuMap.png
+#!date = 2023-12-15 21:32:20
+
+[Rewrite]
+# > 百度地图_首页底部推荐
+^https?:\/\/ugc\.map\.baidu\.com\/govui\/rich_content reject-200
+# > 百度地图_搜索框下足记Tips
+;^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui.*qt=rgc reject-200
+# > 百度地图_搜索推广
+^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui.*qt=hw reject-200
+# > 百度地图_开屏广告|首页左上角广告
+^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads reject-200
+# > 百度地图_DNS处理
+^https?:\/\/httpdns\.baidubce\.com reject-200
+# > 百度地图_各种商业推广
+^https?:\/\/newclient\.map\.baidu\.com\/client\/crossmarketing reject-200
+# > 百度地图_我的页面地图动态
+^https?:\/\/newclient\.map\.baidu\.com\/client\/usersystem\/home\/dynamic reject-200
+
+
+[MitM]
+hostname = 180.76.76.200, newclient.map.baidu.com, httpdns.baidubce.com, ugc.map.baidu.com
