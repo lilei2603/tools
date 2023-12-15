@@ -7,7 +7,7 @@
 
 [Rewrite]
 # > 百度地图_首页底部推荐
-^https?:\/\/ugc\.map\.baidu\.com\/govui\/rich_content reject-200
+^https?:\/\/ugc\.map\.baidu\.com\/govui\/rich_content reject-dict
 # > 百度地图_搜索框下足记Tips
 ;^https?:\/\/newclient\.map\.baidu\.com\/client\/phpui.*qt=rgc reject-200
 # > 百度地图_搜索推广
