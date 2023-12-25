@@ -19,10 +19,10 @@ function getAccountInfo() {
     const accountUrl = /^https:\/\/testflight\.apple\.com\/v3\/accounts\/(.*)\/apps$/
     if(accountUrl.test(requestUrl)) {
         const accountId = requestUrl.match(accountUrl)[1]
-        const sessionId = $request.headers['X-Session-Id']
-        const sessionDigest = $request.headers['X-Session-Digest']
-        const requestId = $request.headers['X-Request-Id']
-        const userAgent = $request.headers['User-Agent']
+        const sessionId = $request.headers['X-Session-Id'] || $request.headers['x-session-id']
+        const sessionDigest = $request.headers['X-Session-Digest'] || $request.headers['x-session-digest']
+        const requestId = $request.headers['X-Request-Id'] || $request.headers['x-request-id']
+        const userAgent = $request.headers['User-Agent'] || $request.headers['user-agent']
         $persistentStore.write(accountId, 'TF_ACCOUNT_ID')
         $persistentStore.write(sessionId, 'TF_SESSION_ID')
         $persistentStore.write(sessionDigest, 'TF_SESSION_DIGEST')
