@@ -45,7 +45,7 @@ function getAppId() {
             } else {
                 appList = appList.push(appId).join(",")
                 $notification.post("获取TestFlight应用ID", `${appId}已添加至监控列表`, `当前ID: ${appList}`);
-                $persistentStore.write(appList.toString(),'TF_APP_ID')
+                $persistentStore.write(appList,'TF_APP_ID')
             }
         }
     }
