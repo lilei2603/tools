@@ -19,9 +19,9 @@ const body = 'Source=IOS'
 $.signInfo = {};
 
 !(async () => {
-	// 获取 Cookie
+	// 获取 Token
 	if (typeof $request !== 'undefined') {
-		getCookie();
+		getToken();
 		return;
 	}
 	await sign();
@@ -31,8 +31,8 @@ $.signInfo = {};
 	await getMyIntegral()
 	await showMsg()
 })()
-// 获取数据
-function getCookie() {
+// 获取Token
+function getToken() {
 	if ($request && $request.headers) {
 		const token = $request.headers['Autnorization'] || $request.headers['autnorization']
 		$.setdata(vimoto_token, token);
