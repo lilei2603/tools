@@ -32,7 +32,7 @@ $.signInfo = {};
 	await showMsg()
 })()
 // 获取数据
-function GetCookie() {
+function getCookie() {
 	if ($request && $request.headers) {
 		const token = $request.headers['Autnorization'] || $request.headers['autnorization']
 		$.setdata(vimoto_token, token);
