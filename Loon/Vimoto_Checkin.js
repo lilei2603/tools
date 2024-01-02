@@ -19,11 +19,6 @@ const body = 'Source=IOS'
 $.signInfo = {};
 
 !(async () => {
-	// 获取 Token
-	if (typeof $request !== 'undefined') {
-		getToken();
-		return;
-	}
 	await sign();
 	await getSignInfo()
 	await trigger()
@@ -31,14 +26,7 @@ $.signInfo = {};
 	await getMyIntegral()
 	await showMsg()
 })()
-// 获取Token
-function getToken() {
-	if ($request && $request.headers) {
-		const token = $request.headers['Autnorization'] || $request.headers['autnorization']
-		$.setdata(vimoto_token, token);
-		$.msg(title, ``, `成功获取Token`);
-	}
-}
+
 async function sign() {
 	let option = {
 		url: url + '/integral/operation/sign',
