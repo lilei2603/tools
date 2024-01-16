@@ -6,4 +6,5 @@
 #!icon=https://raw.githubusercontent.com/Softlyx/Fileball/main/YUAN/ALiYun.png
 
 [Script]
-cron "1 0 * * *" script-path=https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/js/Mine/aDriveCheckIn/aDriveCheckIn.js, tag=阿里网盘签到
+#cron "1 0 * * *" script-path=https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/js/Mine/aDriveCheckIn/aDriveCheckIn.js, tag=阿里网盘签到
+cron "1 0 * * *" script-path=https://raw.githubusercontent.com/lilei2603/tools/main/Loon/AliDrive_Checkin.js, tag=阿里网盘签到
