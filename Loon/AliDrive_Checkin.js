@@ -31,7 +31,7 @@ if(ADrivreInfo.isAutoGetReword === 'false')
 console.log('自动领取开启：' + $.isAutoGetReword)
 const authUrl = 'https://auth.aliyundrive.com/v2/account/token'
 const checkInUrl = 'https://member.aliyundrive.com/v2/activity/sign_in_list'
-const rewordUrl = 'https://member.aliyundrive.com/v1/activity/sign_in_reward?_rx-s=mobile'
+const rewordUrl = 'https://member.aliyundrive.com/v2/activity/sign_in_task_reward?_rx-s=mobile'
 if (typeof $request !== 'undefined') {
     $.log('🤖获取token')
     GetRefresh_token()
