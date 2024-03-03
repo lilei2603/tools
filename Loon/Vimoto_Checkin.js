@@ -25,6 +25,7 @@ $.signInfo = {};
 	await receive()
 	await getMyIntegral()
 	await showMsg()
+	$.done()
 })()
 
 async function sign() {
