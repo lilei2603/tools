@@ -16,6 +16,7 @@ $.signInfo = {};
 	await sign();
 	await getSignInfo();
 	await showMsg();
+    $.done();
 })()
 function sign() {
     return new Promise((resolve) => {
