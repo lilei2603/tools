@@ -1,9 +1,9 @@
-#!name = 春风定时签到
-#!desc = 春风定时签到任务。
+#!name = 春风日常任务
+#!desc = 春风日常任务。
 #!author = 润就完事了
 #!homepage = https://github.com/lilei2603/tools/new/main/Loon
 #!icon = https://raw.githubusercontent.com/lilei2603/tools/main/Icon/cf_logo.png
-#!date = 2023-11-21
+#!date = 2024-3-4
 #!input = CF_Cookie
 
 [Script]
