@@ -4,7 +4,10 @@ const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
-if (url.includes("functionId=deliverLayer") || url.includes("functionId=orderTrackBusiness")) {
+if (
+  url.includes("functionId=deliverLayer") ||
+  url.includes("functionId=orderTrackBusiness")
+) {
   // 物流页面
   if (obj?.bannerInfo) {
     // 收货时寄快递享八折 享受条件苛刻 故移除
@@ -12,7 +15,9 @@ if (url.includes("functionId=deliverLayer") || url.includes("functionId=orderTra
   }
   if (obj?.floors?.length > 0) {
     // 运费八折
-    obj.floors = obj.floors.filter((i) => !["banner", "jdDeliveryBanner"]?.includes(i?.mId));
+    obj.floors = obj.floors.filter(
+      (i) => !["banner", "jdDeliveryBanner"]?.includes(i?.mId),
+    );
   }
 } else if (url.includes("functionId=getTabHomeInfo")) {
   // 发现页悬浮动图
@@ -24,7 +29,9 @@ if (url.includes("functionId=deliverLayer") || url.includes("functionId=orderTra
   if (obj?.floors?.length > 0) {
     let newFloors = [];
     for (let floor of obj.floors) {
-      if (["bannerFloor", "bpDynamicFloor", "plusFloor"]?.includes(floor?.mId)) {
+      if (
+        ["bannerFloor", "bpDynamicFloor", "plusFloor"]?.includes(floor?.mId)
+      ) {
         // bannerFloor满意度评分 bpDynamicFloor专属权益 plusFloor开通会员
         continue;
       } else {
@@ -74,7 +81,7 @@ if (url.includes("functionId=deliverLayer") || url.includes("functionId=orderTra
         "newAttentionCard", // 关注的频道
         "newBigSaleFloor", // 双十一
         "noticeFloor", // 顶部横幅
-        "recommendfloor" // 我的推荐
+        "recommendfloor", // 我的推荐
       ];
       if (items?.includes(floor?.mId)) {
         continue;
@@ -113,18 +120,26 @@ if (url.includes("functionId=deliverLayer") || url.includes("functionId=orderTra
               "kehufuwu", // 客户服务
               "jijianfuwu", // 寄件服务
               "wangwangleyuan", // 汪汪庄园
-              "guafenjingdou" // 瓜分京豆
+              "guafenjingdou", // 瓜分京豆
             ];
             let node = floor.data.nodes;
             if (node?.[0]?.length > 0) {
               node[0] = node[0]
                 .filter((i) => sortLists?.includes(i?.functionId))
-                .sort((a, b) => sortLists.indexOf(a?.functionId) - sortLists.indexOf(b?.functionId));
+                .sort(
+                  (a, b) =>
+                    sortLists.indexOf(a?.functionId) -
+                    sortLists.indexOf(b?.functionId),
+                );
             }
             if (node?.[1]?.length > 0) {
               node[1] = node[1]
                 .filter((i) => sortLists?.includes(i?.functionId))
-                .sort((a, b) => sortLists.indexOf(a?.functionId) - sortLists.indexOf(b?.functionId));
+                .sort(
+                  (a, b) =>
+                    sortLists.indexOf(a?.functionId) -
+                    sortLists.indexOf(b?.functionId),
+                );
             }
           }
         } else if (floor?.mId === "orderIdFloor") {
@@ -161,7 +176,15 @@ if (url.includes("functionId=deliverLayer") || url.includes("functionId=orderTra
     // 首页 图层列表
     // bottomXview底部悬浮通栏 float推广浮层 recommend为你推荐 ruleFloat资质与规则 searchIcon右上角消费券 topRotate左上角logo
     obj.floorList = obj.floorList.filter(
-      (i) => !["bottomXview", "float", "photoCeiling", "ruleFloat", "searchIcon", "topRotate"]?.includes(i?.type)
+      (i) =>
+        ![
+          "bottomXview",
+          "float",
+          "photoCeiling",
+          "ruleFloat",
+          "searchIcon",
+          "topRotate",
+        ]?.includes(i?.type),
     );
   }
   // 首页 顶部背景图
